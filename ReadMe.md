@@ -55,6 +55,9 @@ suspend fun getChats(@Path("number") number: Int, @Query("key") key: String): Li
 Beim Aufruf dieser Funktion aus dem Repository geben wir dann einfach unsere Nummer und den Api-Key als Parameter mit:
 
 ```kotlin
+val number = 1
+val key = "test"
+...
 val result = api.retrofitService.getCalls(number, key)
 ```
 
@@ -123,5 +126,5 @@ Ist die Anfrage fehlerhaft, wird die Nachricht nicht erstellt.
 
 ```
 POST
-/group/{number}/chats/{chat-id}/new-message
+/group/{number}/chats/{chatId}/new-message
 ```
