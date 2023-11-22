@@ -1,15 +1,13 @@
 package com.syntax_institut.whatssyntax.adapter
 
-import android.service.autofill.Dataset
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.syntax_institut.whatssyntax.MainViewModel
-import com.syntax_institut.whatssyntax.data.model.Note
 import com.syntax_institut.whatssyntax.databinding.ItemNoteBinding
 
 class NoteAdapter(
-    private val dataset: List<Note>,
+    private val dataset: List<Any>,
     private val viewModel: MainViewModel
 ): RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
@@ -26,14 +24,6 @@ class NoteAdapter(
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val item = dataset[position]
-
-        holder.binding.tvNoteName.text = item.contactName
-        holder.binding.tvNoteText.text = item.text
-
-        holder.binding.cvNote.setOnLongClickListener {
-            viewModel.deleteNote(item)
-            true
-        }
-
+        TODO()
     }
 }

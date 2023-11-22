@@ -5,16 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.syntax_institut.whatssyntax.MainViewModel
-import com.syntax_institut.whatssyntax.data.model.Message
 import com.syntax_institut.whatssyntax.databinding.ItemChatInBinding
 import com.syntax_institut.whatssyntax.databinding.ItemChatOutBinding
 
 class ChatDetailAdapter(
-    private val dataset: MutableList<Message>,
+    private val dataset: MutableList<Any>,
     private val viewModel: MainViewModel
 ): RecyclerView.Adapter<ViewHolder>() {
 
-    fun sendNewMessage(message: Message) {
+    fun sendNewMessage(message: Any) {
         dataset.add(message)
         notifyItemInserted(dataset.size-1)
     }
@@ -27,12 +26,7 @@ class ChatDetailAdapter(
     inner class MessageInViewHolder(val binding: ItemChatInBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun getItemViewType(position: Int): Int {
-        val item = dataset[position]
-        return if (item.incoming) {
-            inType
-        } else {
-            outType
-        }
+        TODO()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -51,21 +45,7 @@ class ChatDetailAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataset[position]
-
-        if (holder is MessageInViewHolder) {
-            holder.binding.tvMessageIn.text = item.text
-
-            holder.binding.cvChatIn.setOnClickListener {
-                   viewModel.saveNote(item)
-            }
-
-        } else if (holder is MessageOutViewHolder) {
-            holder.binding.tvMessageOut.text = item.text
-
-            holder.binding.cvChatOut.setOnClickListener {
-                viewModel.saveNote(item)
-            }
-        }
+        TODO()
     }
 
 }

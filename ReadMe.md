@@ -19,7 +19,7 @@ Die Base-URL lautet: http://81.169.201.230:8080
 Jeder Endpunkt dieser API beginnt mit:
 
 ```
-   /group/{number}/...
+/group/{number}/...
 ```
 
 Number ist in diesem Fall eine Pfad-Variable, die bei jeder Request mitgegeben werden muss.
