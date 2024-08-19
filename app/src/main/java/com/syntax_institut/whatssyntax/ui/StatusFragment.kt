@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.syntax_institut.whatssyntax.MainViewModel
 import com.syntax_institut.whatssyntax.databinding.FragmentStatusBinding
+import com.syntax_institut.whatssyntax.ui.adapter.StatusAdapter
 
 class StatusFragment: Fragment() {
 
@@ -20,12 +21,15 @@ class StatusFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentStatusBinding.inflate(layoutInflater)
+        viewModel.getContacts()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.contacts.observe(viewLifecycleOwner) {
+            binding.rvContacts.adapter = StatusAdapter(it, viewModel)
+        }
     }
-
 }
