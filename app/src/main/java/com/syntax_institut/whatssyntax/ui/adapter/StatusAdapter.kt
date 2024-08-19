@@ -8,6 +8,7 @@ import coil.load
 import com.syntax_institut.whatssyntax.MainViewModel
 import com.syntax_institut.whatssyntax.R
 import com.syntax_institut.whatssyntax.data.model.Contact
+import com.syntax_institut.whatssyntax.data.remote.BASE_URL
 import com.syntax_institut.whatssyntax.databinding.ItemContactBinding
 
 class StatusAdapter(
@@ -29,7 +30,7 @@ class StatusAdapter(
         val contact = dataset[position]
 
         holder.binding.tvContactName.text = contact.name
-        holder.binding.ivContactImage.load(contact.image)
+        holder.binding.ivContactImage.load(BASE_URL + contact.image)
 
         holder.binding.root.setOnClickListener {
             viewModel.selectContact(contact)
