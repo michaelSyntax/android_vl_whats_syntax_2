@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.syntax_institut.whatssyntax.data.Repository
 import com.syntax_institut.whatssyntax.data.model.Contact
+import com.syntax_institut.whatssyntax.data.model.Profile
 import com.syntax_institut.whatssyntax.data.remote.WhatsSyntaxApi
 import kotlinx.coroutines.launch
 
@@ -27,5 +28,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun selectContact(contact: Contact) {
         _selectedContact.value = contact
+    }
+
+    fun setProfile(profile: Profile) {
+        viewModelScope.launch {
+            repository.setProfile(profile)
+        }
     }
 }

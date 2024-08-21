@@ -5,6 +5,7 @@ data class Contact(
     val name: String,
     val number: String,
     val image: String,
-    val status: Status?
+    val status: Status?,
+    val lastMessage: Message
 ) {
 }

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.syntax_institut.whatssyntax.MainViewModel
+import com.syntax_institut.whatssyntax.data.model.Profile
 import com.syntax_institut.whatssyntax.databinding.FragmentSettingsBinding
 
 class SettingsFragment: Fragment() {
@@ -26,5 +27,11 @@ class SettingsFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btProfileSave.setOnClickListener {
+            val newName = binding.tietProfileName.text.toString()
+            val number = binding.tietProfileNumber.text.toString()
+            val newProfile = Profile(newName, number, "")
+            viewModel.setProfile(newProfile)
+        }
     }
 }
